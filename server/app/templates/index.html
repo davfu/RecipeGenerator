@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>What's Cookin'?</h1>
+    <p>Filters</p>
+    <form action="/recipes" method="post" id = "recipeForm">
+        <script src="{{url_for('static', filename='script.js')}}"></script>
+        <button type="submit">Find Recipes</button>
+    </form>
+    <a href="/login">Log In</a>
+    <a href="/signup">Create Account</a>
+{% endblock %}
