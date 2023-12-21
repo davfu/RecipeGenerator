@@ -2,8 +2,6 @@ from flask import render_template, request, jsonify
 from app import app
 from app.functions.filter import get_recipes
 
-# FILTERS = {}
-
 @app.route("/")
 def index(): 
     return render_template("index.html")
