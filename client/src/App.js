@@ -1,9 +1,10 @@
-import SliderFilter from './components/Forms/Sliders'
+import React from 'react';
+import Main from './pages/Home/Main';
 
 function App() {
   return (
     <div>
-      <SliderFilter />
+      <Main />
     </div>
   )
 }
