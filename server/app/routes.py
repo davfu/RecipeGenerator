@@ -8,11 +8,18 @@ def index():
 
 @app.route("/recipes", methods=["POST"])
 def recipes():
-    form = request.form
-    recipe_list = get_recipes(form)
-    recipes_json = [{'name': name, 'url': url} for name, url in recipe_list]
+    recipe_list = get_recipes(request.form)
+    recipes_json = [{'name': name, 
+                     'url': url, 
+                     'cals': cals, 
+                     'carbs': carbs, 
+                     'fat': fat,
+                     'protein': protein,
+                     'num_ing': num_ing,
+                     'rating': rating,
+                     'num_rev': num_rev} for name, url, cals, carbs, fat, protein, num_ing, rating, num_rev in recipe_list] # make recipes json
+    print(recipes_json)
     return jsonify(recipes_json)
-    #return render_template("recipes.html", lst_recipes=recipe_list)
 
 @app.route('/login')
 def login():
