@@ -3,15 +3,16 @@ import SliderDisplay from './layouts/SliderDisplay';
 import RecipeDisplay from './layouts/RecipeDisplay';
 
 const Main = () => {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(null);
+  //useState([{'name': 'Divine Hard-Boiled Eggs', 'url': 'https://www.allrecipes.com/recipe/176229/divine-hard-boiled-eggs/', 'cals': 72, 'carbs': 0, 'fat': 5, 'protein': 6, 'num_ing': 1, 'rating': 4.6, 'num_rev': 577}]);
  
   // different sliders with necessary parameters
   const sliders = [
-    { name: 'Ingredients', min: 1, max: 10, value: 5, step: 1, unit: ' Ingredients' },
-    { name: 'Calories', min: 0, max: 1800, value: 1000, step: 200, unit: ' Calories' },
+    { name: 'Ingredients', min: 1, max: 15, value: 10, step: 1, unit: ' Ingredients' },
+    { name: 'Calories', min: 0, max: 2000, value: 1000, step: 200, unit: ' Calories' },
     { name: 'Protein', min: 0, max: 100, value: 50, step: 10, unit: ' g' },
-    { name: 'Carbohydrates', min: 0, max: 110, value: 50, step: 10, unit: ' g'},
-    { name: 'Fat', min: 0, max: 170, value: 90, step: 10, unit: ' g'},
+    { name: 'Carbohydrates', min: 0, max: 200, value: 100, step: 10, unit: ' g'},
+    { name: 'Fat', min: 0, max: 150, value: 80, step: 10, unit: ' g'},
   ];
   
   // initialize useState for each slider to manage state
@@ -24,7 +25,7 @@ const Main = () => {
   );
 
   // handles when slider changes values
-  const handleSliderChange = (name, value) => {
+  const handleSlider = (name, value) => {
     setSliderValues((prevValues) => ({
       // take prev state object, modify the value
       ...prevValues, // spread operator
@@ -53,7 +54,7 @@ const Main = () => {
     })
       .then(response => response.json()) // response is the 'Response' object received from server
       .then(data => {
-        setRecipes(data.recipes); // update recipes state
+        setRecipes(data); // update recipes state
         console.log(data);
       })
       .catch(error => console.error('Error: ', error));
@@ -61,12 +62,13 @@ const Main = () => {
 
   return (
     <div>
+      <h1>What's Cookin'?</h1>
       <div className='left'>
         {/* FilterSlider component */}
         <SliderDisplay
           sliders={sliders}
           sliderValues={sliderValues}
-          handleSliderChange={handleSliderChange}
+          handleSlider={handleSlider}
           handleSubmit={handleSubmit}
         />
       </div>
