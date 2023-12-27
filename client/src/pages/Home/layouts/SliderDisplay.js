@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-const SliderDisplay = ({ sliders, sliderValues, handleSliderChange, handleSubmit }) => {
+const SliderDisplay = ({ sliders, sliderValues, handleSlider, handleSubmit }) => {
   return (
     <div>
       {sliders.map((slider) => (
@@ -17,7 +17,7 @@ const SliderDisplay = ({ sliders, sliderValues, handleSliderChange, handleSubmit
             max={slider.max}
             value={sliderValues[slider.name.toLowerCase()]}
             step={slider.step}
-            onChange={(e) => handleSliderChange(slider.name.toLowerCase(), parseInt(e.target.value, 10))}
+            onChange={(e) => handleSlider(slider.name.toLowerCase(), parseInt(e.target.value, 10))}
             data-operator="<="
           />
           <div className="output">
