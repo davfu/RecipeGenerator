@@ -1,4 +1,4 @@
-# Recipe Generator
+# Recipe Generator 🧑🏼‍🍳
 
 Working on a Fullstack Web Application that allows users to find recipes based on dietary needs and the ingredients they have.
 
