@@ -1,4 +1,4 @@
-# Recipe Generator 🧑🏼‍🍳
+# What's Cookin'? 🧑🏼‍🍳
 
 Working on a Fullstack Web Application using a React frontend and Flask backend. <br>
 Allows users to find recipes based on dietary needs and the ingredients they have.
