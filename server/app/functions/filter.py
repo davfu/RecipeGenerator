@@ -58,6 +58,8 @@ def get_recipes(form):
                                                                     Recipe.protein,
                                                                     Recipe.num_ingredients,
                                                                     Recipe.rating,
-                                                                    Recipe.rev_count).all()
+                                                                    Recipe.rev_count,
+                                                                    Recipe.image_url,
+                                                                    Recipe.time).all()
 
     return recipes

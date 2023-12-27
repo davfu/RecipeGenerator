@@ -17,7 +17,9 @@ def recipes():
                      'protein': protein,
                      'num_ing': num_ing,
                      'rating': rating,
-                     'num_rev': num_rev} for name, url, cals, carbs, fat, protein, num_ing, rating, num_rev in recipe_list] # make recipes json
+                     'num_rev': num_rev,
+                     'img_url': img_url,
+                     'time': time} for name, url, cals, carbs, fat, protein, num_ing, rating, num_rev, img_url, time in recipe_list] # make recipes json
     print(recipes_json)
     return jsonify(recipes_json)
 

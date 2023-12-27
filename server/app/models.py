@@ -15,4 +15,5 @@ class Recipe(db.Model):
     protein = db.Column(db.Integer)  # Assuming protein is represented as integers
     carbs = db.Column(db.Integer)  # Assuming carbs are represented as integers
     fat = db.Column(db.Integer)  # Assuming fat is represented as integers
-
+    image_url = db.Column(db.String(255), unique=True)
+    time = db.Column(db.Integer)
