@@ -7,6 +7,7 @@ import Recipe from './Recipe';
 const RecipeDisplay = ({ recipes }) => {
   const [sortOption, setSortOption] = useState('popular');
   const [finalRecipes, setFinalRecipes] = useState([]);
+  const [displayCount, setDisplayCount] = useState(20);
 
   useEffect(() => {
     // set the initial state when recipes prop changes
@@ -14,30 +15,32 @@ const RecipeDisplay = ({ recipes }) => {
   }, [recipes, sortOption]);
 
   const sortRecipes = (recipes, sortOption) => {
-    if (sortOption === 'popular') {
-      return recipes.sort((a, b) => b.num_rev - a.num_rev);
-    } else if (sortOption === 'alphabetical') {
-      return recipes.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortOption === 'cal_dsc') {
-      return recipes.sort((a, b) => b.calories - a.calories);
-    } else if (sortOption === 'cal_asc') {
-      return recipes.sort((a, b) => a.calories - b.calories);
-    } else if (sortOption === 'ing_dsc') {
-      return recipes.sort((a, b) => b.num_ing - a.num_ing);
-    } else if (sortOption === 'ing_asc') {
-      return recipes.sort((a, b) => a.num_ing - b.num_ing);
-    } else {
-      return recipes.sort((a, b) => b.protein - a.protein)
-    }
+    const sortFunctions = {
+      popular: (a, b) => b.num_rev - a.num_rev,
+      alphabetical: (a, b) => a.name.localeCompare(b.name),
+      cal_dsc: (a, b) => b.cals - a.cals,
+      cal_asc: (a, b) => a.cals - b.cals,
+      ing_dsc: (a, b) => b.num_ing - a.num_ing,
+      ing_asc: (a, b) => a.num_ing - b.num_ing,
+      default: (a, b) => b.protein - a.protein,
+    };
+  
+    const sortFunction = sortFunctions[sortOption] || sortFunctions.default;
+  
+    return [...recipes].sort(sortFunction);
   };
 
   const handleSortChange = (event) => {
     const newSortOption = event.target.value;
     setSortOption(newSortOption);
-
-    const sorted = sortRecipes(recipes, newSortOption);
-    setFinalRecipes(sorted);
+    setDisplayCount(20);
   };
+
+  const handleLoadMore = () => {
+    setDisplayCount(prevCount => prevCount + 20);
+  };
+
+  const displayedRecipes = finalRecipes.slice(0, displayCount);
 
   if (recipes.length === 0) {
     return (
@@ -61,10 +64,13 @@ const RecipeDisplay = ({ recipes }) => {
           <option value="ptn_dsc">Protein (Most - Least)</option>
         </select>
       </div>
-      {finalRecipes.map(recipe => {
+      {displayedRecipes.map(recipe => {
         return <Recipe key={recipe.id} recipe={recipe} />
        })
       }
+      {displayCount < recipes.length && (
+        <button onClick={handleLoadMore}>Load More</button>
+      )}
     </div>
   )
 };
