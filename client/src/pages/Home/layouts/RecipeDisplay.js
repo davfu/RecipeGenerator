@@ -1,6 +1,6 @@
 // layout for displaying recipes
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Recipe from './Recipe';
 /* make function for displaying each recipe box */
 /* fix so that handles display for when there is no list of recipes yet*/
@@ -8,6 +8,11 @@ const RecipeDisplay = ({ recipes }) => {
   console.log(recipes);
   const [sortOption, setSortOption] = useState('popular');
   const [finalRecipes, setFinalRecipes] = useState([]);
+
+  useEffect(() => {
+    // set the initial state when recipes prop changes
+    setFinalRecipes(sortRecipes([...recipes], sortOption));
+  }, [recipes, sortOption]);
 
   const sortRecipes = (recipes, sortOption) => {
     if (sortOption === 'popular') {
