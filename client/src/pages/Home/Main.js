@@ -3,7 +3,7 @@ import SliderDisplay from './layouts/SliderDisplay';
 import RecipeDisplay from './layouts/RecipeDisplay';
 
 const Main = () => {
-  const [recipes, setRecipes] = useState(null);
+  const [recipes, setRecipes] = useState([]);
   //useState([{'name': 'Divine Hard-Boiled Eggs', 'url': 'https://www.allrecipes.com/recipe/176229/divine-hard-boiled-eggs/', 'cals': 72, 'carbs': 0, 'fat': 5, 'protein': 6, 'num_ing': 1, 'rating': 4.6, 'num_rev': 577}]);
  
   // different sliders with necessary parameters
@@ -55,7 +55,6 @@ const Main = () => {
       .then(response => response.json()) // response is the 'Response' object received from server
       .then(data => {
         setRecipes(data); // update recipes state
-        console.log(data);
       })
       .catch(error => console.error('Error: ', error));
   }
