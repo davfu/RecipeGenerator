@@ -50,7 +50,8 @@ def get_recipes(form):
 
     # apply the dynamic filter conditions to the query
     # * passes each element in filter list into the parameters
-    recipes = Recipe.query.filter(*filter_conditions).with_entities(Recipe.title, 
+    recipes = Recipe.query.filter(*filter_conditions).with_entities(Recipe.id,
+                                                                    Recipe.title, 
                                                                     Recipe.url, 
                                                                     Recipe.cals, 
                                                                     Recipe.carbs, 
