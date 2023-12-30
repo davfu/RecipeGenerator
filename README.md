@@ -9,6 +9,6 @@ Currently working on:
 * Learning the rules of React Development
 
 Next up:
-* User authentication/accout sign-up and cookies
+* User authentication/account sign-up and cookies
 * Allowing users to save favorite recipes
 * Research serverless hosting
