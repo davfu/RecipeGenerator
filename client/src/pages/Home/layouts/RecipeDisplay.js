@@ -7,7 +7,7 @@ import Recipe from './Recipe';
 const RecipeDisplay = ({ recipes }) => {
   const [sortOption, setSortOption] = useState('popular');
   const [finalRecipes, setFinalRecipes] = useState([]);
-  const [displayCount, setDisplayCount] = useState(20);
+  const [displayCount, setDisplayCount] = useState(10);
 
   useEffect(() => {
     // set the initial state when recipes prop changes
@@ -33,11 +33,11 @@ const RecipeDisplay = ({ recipes }) => {
   const handleSortChange = (event) => {
     const newSortOption = event.target.value;
     setSortOption(newSortOption);
-    setDisplayCount(20);
+    setDisplayCount(10);
   };
 
   const handleLoadMore = () => {
-    setDisplayCount(prevCount => prevCount + 20);
+    setDisplayCount(prevCount => prevCount + 10);
   };
 
   const displayedRecipes = finalRecipes.slice(0, displayCount);
