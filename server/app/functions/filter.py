@@ -12,26 +12,29 @@ def get_recipes(form):
     # get user-selected values
     num_ing = form.get("slider-ingredients")
     cals = form.get("slider-calories")
-    protein = form.get("slider-protein")
+    # protein = form.get("slider-protein")
     carbs = form.get("slider-carbohydrates")
     fat = form.get("slider-fat")
+    time = form.get("slider-time")
 
     # map form field names to corresponding SQLAlchemy model attributes
     attributes = {
         "slider-ingredients": Recipe.num_ingredients,
         "slider-calories": Recipe.cals,
-        "slider-protein": Recipe.protein,
+        # "slider-protein": Recipe.protein,
         "slider-carbohydrates": Recipe.carbs,
         "slider-fat": Recipe.fat,
+        "slider-time": Recipe.time,
     }
 
     # map form field names to comparison operators
     operators = {
         "slider-ingredients": "__le__" if form.get("attr-ingredients") == 'atMost' else "__ge__",
         "slider-calories": "__le__" if form.get("attr-calories") == 'atMost' else "__ge__",
-        "slider-protein": "__le__" if form.get("attr-protein") == 'atMost' else "__ge__",
+        # "slider-protein": "__le__" if form.get("attr-protein") == 'atMost' else "__ge__",
         "slider-carbohydrates": "__le__" if form.get("attr-carbohydrates") == 'atMost' else "__ge__",
         "slider-fat": "__le__" if form.get("attr-fat") == 'atMost' else "__ge__",
+        "slider-time": "__le__" if form.get("attr-time") == 'atMost' else "__ge__",
     }
 
     # dynamic filter conditions
@@ -41,9 +44,10 @@ def get_recipes(form):
         for field, value in {
             "slider-ingredients": num_ing,
             "slider-calories": cals,
-            "slider-protein": protein,
+            # "slider-protein": protein,
             "slider-carbohydrates": carbs,
             "slider-fat": fat,
+            "slider-time": time,
         }.items()
         if value is not None
     ]

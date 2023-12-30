@@ -10,9 +10,9 @@ const Main = () => {
   const sliders = [
     { name: 'Ingredients', min: 1, max: 15, value: 10, step: 1, unit: ' Ingredients' },
     { name: 'Calories', min: 0, max: 2000, value: 1000, step: 200, unit: ' Calories' },
-    { name: 'Protein', min: 0, max: 100, value: 50, step: 10, unit: ' g' },
-    { name: 'Carbohydrates', min: 0, max: 200, value: 100, step: 10, unit: ' g'},
-    { name: 'Fat', min: 0, max: 150, value: 80, step: 10, unit: ' g'},
+    { name: 'Carbohydrates', min: 0, max: 100, value: 50, step: 10, unit: ' g'},
+    { name: 'Fat', min: 0, max: 100, value: 50, step: 10, unit: ' g'},
+    { name: 'Time', min: 0, max: 300, value: 60, step: 15, unit: ' Minutes' },
   ];
   
   // initialize useState for each slider to manage state
