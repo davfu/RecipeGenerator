@@ -5,7 +5,7 @@ Allows users to find recipes based on dietary needs and the ingredients they hav
 
 Currently working on:
 * Moving from SQLite to MySQL (better supports multi-user functions)
-* Implement recipe search through input ingredients
+* Implement recipe search through input ingredients (make new tables for ingredients and a many-many table)
 * Learning efficient Flask App Routing
 * Learning the rules of React Development
 
