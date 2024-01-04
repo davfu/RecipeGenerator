@@ -1,0 +1,4 @@
+[{'name': 'Best Fruit Dip', 'url': 'https://www.allrecipes.com/recipe/16570/fruit-dip-ii/', 'cals': 118, 'carbs': 13, 'fat': 7, 'protein': 2, 'num_ing': 2, 'rating': 4.8, 'num_rev': 1154}, 
+ {'name': 'Bacon for the Family or a Crowd', 'url': 'https://www.allrecipes.com/recipe/158727/bacon-for-the-family-or-a-crowd/', 'cals': 203, 'carbs': 1, 'fat': 16, 'protein': 14, 'num_ing': 1, 'rating': 4.6, 'num_rev': 851},
+ {'name': 'Slow Cooker Ham', 'url': 'https://www.allrecipes.com/recipe/80525/slow-cooker-ham/', 'cals': 360, 'carbs': 18, 'fat': 20, 'protein': 26, 'num_ing': 2, 'rating': 4.6, 'num_rev': 1425}, 
+ {'name': 'Divine Hard-Boiled Eggs', 'url': 'https://www.allrecipes.com/recipe/176229/divine-hard-boiled-eggs/', 'cals': 72, 'carbs': 0, 'fat': 5, 'protein': 6, 'num_ing': 1, 'rating': 4.6, 'num_rev': 577}]
