@@ -1,14 +1,15 @@
 from flask import render_template, request, jsonify
 from app import app
-from app.functions.filter import get_recipes
+from server.app.functions.recipes_filters import get_recipes_filter
 
 @app.route("/")
 def index(): 
     return render_template("index.html")
 
+# modify to take ingredients when necessary (figure out how to route properly)
 @app.route("/recipes", methods=["POST"])
 def recipes():
-    recipe_list = get_recipes(request.form)
+    recipe_list = get_recipes_filter(request.form)
     recipes_json = [{'id': id,
                      'name': name, 
                      'url': url, 

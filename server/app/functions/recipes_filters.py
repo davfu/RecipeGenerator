@@ -1,5 +1,6 @@
 from app.models import Recipe
 
+
 """
 get_recipes()
 Input: Dictionary, 
@@ -8,7 +9,7 @@ Output: Array
 Finds the recipes based on number of ingredients, calories, protein, 
 carbs, fat, and if they want the value to be a maximum or minimum.
 """
-def get_recipes(form):
+def get_recipes_filter(form):
     # get user-selected values
     num_ing = form.get("slider-ingredients")
     cals = form.get("slider-calories")

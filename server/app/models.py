@@ -1,7 +1,7 @@
 # models.py
 from app import db
 
-# data base table for storing recipes using object-relational mapping
+# table for storing recipes using object-relational mapping
 class Recipe(db.Model):
     __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
@@ -17,3 +17,23 @@ class Recipe(db.Model):
     fat = db.Column(db.Integer)  # Assuming fat is represented as integers
     image_url = db.Column(db.String(255), unique=True)
     time = db.Column(db.Integer)
+
+# table for all the ingredients and the count in terms of
+# how many times they appear in all recipes
+class Ingredients(db.Model):
+    __tablename__ = 'recipes'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), unique=True)
+    count = db.Column(db.Integer)
+
+# NEED TO FIGURE OUT
+# many to many junction table that maps the ingredients to recipes
+class Recipe_to_Ingredients(db.Model):
+    __tablename__ = 'recipe_ingredients'
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), primary_key=True)
+    ingredient_id = db.Column(db.Integer, db.ForeignKey('ingredients.id'), primary_key=True)
+
+    # relationship to reference the Recipe and Ingredients tables
+    # recipe = db.relationship('recipes')
+    # ingredient = db.relationship('ingredients')
+    
